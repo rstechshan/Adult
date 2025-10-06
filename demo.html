@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Demo page for Shanaka Technic Blogger theme">
+  <title>Shanaka Technic - Theme Demo</title>
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Theme Styles -->
+  <style>
+    /* Import critical CSS from theme.xml */
+    /* Copy the CSS from the theme.xml <style> section here */
+    /* For brevity, this demo references the main theme */
+  </style>
+  
+  <!-- Extended Styles -->
+  <link rel="stylesheet" href="assets/css/extended.css">
+</head>
+<body>
+  <h1 style="text-align: center; padding: 2rem; font-family: 'Poppins', sans-serif;">
+    🎨 Shanaka Technic Theme Demo
+  </h1>
+  
+  <div style="max-width: 1200px; margin: 0 auto; padding: 2rem;">
+    <section style="margin-bottom: 3rem;">
+      <h2>About This Demo</h2>
+      <p>This is a demonstration page for the Shanaka Technic Blogger theme. The actual theme is contained in <code>theme.xml</code> and should be uploaded to Blogger.</p>
+      
+      <h3>Key Features:</h3>
+      <ul style="line-height: 2;">
+        <li>✨ Modern glassmorphism UI with backdrop blur effects</li>
+        <li>🎨 Dark/Light mode toggle with localStorage persistence</li>
+        <li>📱 Fully responsive design (320px to 1366px+)</li>
+        <li>🎬 YouTube Data API v3 integration</li>
+        <li>📊 Live subscriber count with animated counters</li>
+        <li>🎪 Carousel/slider components</li>
+        <li>♿ WCAG AA accessibility compliant</li>
+        <li>🚀 Performance optimized (lazy loading, inline critical CSS)</li>
+        <li>🔍 SEO ready with structured data</li>
+      </ul>
+    </section>
+    
+    <section style="margin-bottom: 3rem;">
+      <h2>Installation</h2>
+      <ol style="line-height: 2;">
+        <li>Download <code>theme.xml</code> from this repository</li>
+        <li>Go to your Blogger dashboard</li>
+        <li>Navigate to <strong>Theme</strong> section</li>
+        <li>Click the dropdown menu (⋮) next to "Customize"</li>
+        <li>Select <strong>Restore</strong> → <strong>Upload</strong></li>
+        <li>Choose the <code>theme.xml</code> file</li>
+        <li>Click <strong>Upload</strong> and confirm</li>
+      </ol>
+      <p>For detailed instructions, see <a href="INSTALLATION.md">INSTALLATION.md</a></p>
+    </section>
+    
+    <section style="margin-bottom: 3rem;">
+      <h2>Configuration</h2>
+      <p>After uploading the theme, you'll need to configure:</p>
+      <ul style="line-height: 2;">
+        <li><strong>YouTube API Key</strong> - Get from Google Cloud Console</li>
+        <li><strong>YouTube Channel ID</strong> - Find in YouTube Studio settings</li>
+        <li><strong>Social Media Links</strong> - Update in the theme HTML</li>
+        <li><strong>Colors</strong> - Customize CSS variables</li>
+        <li><strong>Fonts</strong> - Change Google Fonts links</li>
+      </ul>
+      <p>See <a href="CUSTOMIZATION.md">CUSTOMIZATION.md</a> for full customization guide</p>
+    </section>
+    
+    <section style="margin-bottom: 3rem;">
+      <h2>File Structure</h2>
+      <pre style="background: #1a1a1a; color: #00e5ff; padding: 1rem; border-radius: 8px; overflow-x: auto;">
+Adult/
+├── theme.xml               # Main Blogger template
+├── README.md              # Documentation
+├── INSTALLATION.md        # Setup guide
+├── CUSTOMIZATION.md       # Customization guide
+├── demo.html              # This file
+├── assets/
+│   ├── css/
+│   │   └── extended.css   # Additional styles
+│   ├── js/
+│   │   ├── youtube.js     # YouTube API module
+│   │   └── carousel.js    # Carousel component
+│   ├── icons/             # SVG icons
+│   └── images/            # Demo images
+      </pre>
+    </section>
+    
+    <section style="margin-bottom: 3rem;">
+      <h2>Color Scheme</h2>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem;">
+        <div style="padding: 1rem; background: #0b0f17; color: white; border-radius: 8px; text-align: center;">
+          <div style="height: 60px; background: #0b0f17; border-radius: 4px; margin-bottom: 0.5rem;"></div>
+          <strong>Primary BG</strong>
+          <div style="font-size: 0.875rem; opacity: 0.7;">#0b0f17</div>
+        </div>
+        <div style="padding: 1rem; background: #00e5ff; color: #0b0f17; border-radius: 8px; text-align: center;">
+          <div style="height: 60px; background: #00e5ff; border-radius: 4px; margin-bottom: 0.5rem;"></div>
+          <strong>Accent Cyan</strong>
+          <div style="font-size: 0.875rem; opacity: 0.7;">#00e5ff</div>
+        </div>
+        <div style="padding: 1rem; background: #8b5cf6; color: white; border-radius: 8px; text-align: center;">
+          <div style="height: 60px; background: #8b5cf6; border-radius: 4px; margin-bottom: 0.5rem;"></div>
+          <strong>Accent Purple</strong>
+          <div style="font-size: 0.875rem; opacity: 0.7;">#8b5cf6</div>
+        </div>
+        <div style="padding: 1rem; background: linear-gradient(135deg, #00e5ff, #8b5cf6); color: white; border-radius: 8px; text-align: center;">
+          <div style="height: 60px; background: linear-gradient(135deg, #00e5ff, #8b5cf6); border-radius: 4px; margin-bottom: 0.5rem;"></div>
+          <strong>Gradient</strong>
+          <div style="font-size: 0.875rem; opacity: 0.9;">Cyan → Purple</div>
+        </div>
+      </div>
+    </section>
+    
+    <section style="margin-bottom: 3rem;">
+      <h2>Browser Support</h2>
+      <table style="width: 100%; border-collapse: collapse;">
+        <thead>
+          <tr style="background: #1a1a1a;">
+            <th style="padding: 0.75rem; text-align: left; border: 1px solid #333;">Browser</th>
+            <th style="padding: 0.75rem; text-align: left; border: 1px solid #333;">Version</th>
+            <th style="padding: 0.75rem; text-align: left; border: 1px solid #333;">Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td style="padding: 0.75rem; border: 1px solid #333;">Chrome</td>
+            <td style="padding: 0.75rem; border: 1px solid #333;">90+</td>
+            <td style="padding: 0.75rem; border: 1px solid #333;">✅ Fully Supported</td>
+          </tr>
+          <tr>
+            <td style="padding: 0.75rem; border: 1px solid #333;">Firefox</td>
+            <td style="padding: 0.75rem; border: 1px solid #333;">88+</td>
+            <td style="padding: 0.75rem; border: 1px solid #333;">✅ Fully Supported</td>
+          </tr>
+          <tr>
+            <td style="padding: 0.75rem; border: 1px solid #333;">Safari</td>
+            <td style="padding: 0.75rem; border: 1px solid #333;">14+</td>
+            <td style="padding: 0.75rem; border: 1px solid #333;">✅ Fully Supported</td>
+          </tr>
+          <tr>
+            <td style="padding: 0.75rem; border: 1px solid #333;">Edge</td>
+            <td style="padding: 0.75rem; border: 1px solid #333;">90+</td>
+            <td style="padding: 0.75rem; border: 1px solid #333;">✅ Fully Supported</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+    
+    <section style="margin-bottom: 3rem;">
+      <h2>Support & Documentation</h2>
+      <ul style="line-height: 2;">
+        <li>📖 <a href="README.md">README.md</a> - Main documentation</li>
+        <li>🔧 <a href="INSTALLATION.md">INSTALLATION.md</a> - Installation guide</li>
+        <li>🎨 <a href="CUSTOMIZATION.md">CUSTOMIZATION.md</a> - Customization guide</li>
+        <li>🐛 <a href="https://github.com/rstechshan/Adult/issues">GitHub Issues</a> - Report bugs</li>
+      </ul>
+    </section>
+    
+    <section style="text-align: center; padding: 2rem; background: linear-gradient(135deg, #00e5ff, #8b5cf6); border-radius: 12px; color: white;">
+      <h2 style="margin-bottom: 1rem;">Ready to Get Started?</h2>
+      <p style="margin-bottom: 1.5rem; opacity: 0.9;">Upload theme.xml to your Blogger blog and start customizing!</p>
+      <a href="https://github.com/rstechshan/Adult" style="display: inline-block; padding: 0.875rem 2rem; background: white; color: #0b0f17; border-radius: 8px; font-weight: 600; text-decoration: none;">
+        View on GitHub
+      </a>
+    </section>
+  </div>
+  
+  <footer style="text-align: center; padding: 2rem; margin-top: 3rem; border-top: 1px solid #333;">
+    <p>© 2024 Shanaka Technic Theme. Made with ❤️ for the tech community.</p>
+    <p style="margin-top: 0.5rem; opacity: 0.7;">Licensed under MIT</p>
+  </footer>
+  
+  <!-- External Scripts -->
+  <script src="assets/js/youtube.js"></script>
+  <script src="assets/js/carousel.js"></script>
+</body>
+</html>

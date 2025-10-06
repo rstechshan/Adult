@@ -1,0 +1,1586 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html>
+<html b:css='false' b:defaultwidgetversion='2' b:layoutsVersion='3' b:responsive='true' b:templateUrl='shanaka-technic-3d.xml' b:templateVersion='1.0.0' expr:dir='data:blog.languageDirection' expr:lang='data:blog.locale' xmlns='http://www.w3.org/1999/xhtml' xmlns:b='http://www.google.com/2005/gml/b' xmlns:data='http://www.google.com/2005/gml/data' xmlns:expr='http://www.google.com/2005/gml/expr'>
+<head>
+  <meta charset='UTF-8'/>
+  <meta content='width=device-width, initial-scale=1.0, viewport-fit=cover' name='viewport'/>
+  <meta content='IE=edge' http-equiv='X-UA-Compatible'/>
+  
+  <b:include name='all-head-content'/>
+  
+  <title><data:blog.pageTitle/></title>
+  
+  <!-- SEO Meta Tags -->
+  <b:if cond='data:blog.metaDescription'>
+    <meta expr:content='data:blog.metaDescription' name='description'/>
+  </b:if>
+  
+  <!-- Open Graph / Social Cards -->
+  <meta expr:content='data:blog.title' property='og:site_name'/>
+  <meta expr:content='data:blog.pageTitle' property='og:title'/>
+  <b:if cond='data:blog.metaDescription'>
+    <meta expr:content='data:blog.metaDescription' property='og:description'/>
+  </b:if>
+  <meta content='website' property='og:type'/>
+  <meta expr:content='data:blog.url' property='og:url'/>
+  
+  <!-- Twitter Card -->
+  <meta content='summary_large_image' name='twitter:card'/>
+  <meta expr:content='data:blog.pageTitle' name='twitter:title'/>
+  <b:if cond='data:blog.metaDescription'>
+    <meta expr:content='data:blog.metaDescription' name='twitter:description'/>
+  </b:if>
+  
+  <!-- Preconnect to external resources -->
+  <link href='https://fonts.googleapis.com' rel='preconnect'/>
+  <link crossorigin='' href='https://fonts.gstatic.com' rel='preconnect'/>
+  <link href='https://www.youtube.com' rel='preconnect'/>
+  <link href='https://i.ytimg.com' rel='preconnect'/>
+  
+  <!-- Google Fonts - Inter & Poppins -->
+  <link href='https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=Poppins:wght@300;400;500;600;700;800&amp;display=swap' rel='stylesheet'/>
+  
+  <style id='critical-css'>
+  /*<![CDATA[*/
+  
+  /* ============================================
+     CSS VARIABLES - Easy Customization
+     ============================================ */
+  :root {
+    /* Color Palette */
+    --primary-bg: #0b0f17;
+    --secondary-bg: #151a24;
+    --glass-tint-light: rgba(255, 255, 255, 0.06);
+    --glass-tint-medium: rgba(255, 255, 255, 0.12);
+    --glass-tint-dark: rgba(0, 0, 0, 0.18);
+    --accent-1: #00e5ff;
+    --accent-2: #8b5cf6;
+    --accent-gradient: linear-gradient(135deg, var(--accent-1) 0%, var(--accent-2) 100%);
+    --text-main: #e6eef6;
+    --text-secondary: #a8b5c7;
+    --text-muted: #6b7789;
+    
+    /* Spacing & Borders */
+    --radius: 12px;
+    --radius-sm: 8px;
+    --radius-lg: 16px;
+    --blur: 6px;
+    --blur-strong: 12px;
+    --shadow: 0 4px 24px rgba(0, 0, 0, 0.3);
+    --shadow-strong: 0 8px 32px rgba(0, 0, 0, 0.5);
+    
+    /* Typography */
+    --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    --font-secondary: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    
+    /* Transitions */
+    --transition-fast: 0.2s ease;
+    --transition-normal: 0.3s ease;
+    --transition-slow: 0.5s ease;
+    
+    /* Z-index layers */
+    --z-header: 1000;
+    --z-modal: 2000;
+    --z-tooltip: 3000;
+  }
+  
+  /* Dark Mode Variables */
+  [data-theme="light"] {
+    --primary-bg: #f5f7fa;
+    --secondary-bg: #ffffff;
+    --glass-tint-light: rgba(0, 0, 0, 0.03);
+    --glass-tint-medium: rgba(0, 0, 0, 0.06);
+    --glass-tint-dark: rgba(255, 255, 255, 0.9);
+    --text-main: #1a2332;
+    --text-secondary: #4a5568;
+    --text-muted: #718096;
+    --shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+    --shadow-strong: 0 8px 32px rgba(0, 0, 0, 0.12);
+  }
+  
+  /* ============================================
+     RESET & BASE STYLES
+     ============================================ */
+  *, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  html {
+    font-size: 16px;
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+  
+  body {
+    font-family: var(--font-primary);
+    background-color: var(--primary-bg);
+    color: var(--text-main);
+    line-height: 1.6;
+    overflow-x: hidden;
+    min-height: 100vh;
+    transition: background-color var(--transition-normal);
+  }
+  
+  a {
+    color: var(--accent-1);
+    text-decoration: none;
+    transition: color var(--transition-fast);
+  }
+  
+  a:hover {
+    color: var(--accent-2);
+  }
+  
+  img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
+  
+  button {
+    font-family: inherit;
+    cursor: pointer;
+    border: none;
+    background: none;
+  }
+  
+  /* ============================================
+     GLASSMORPHISM UTILITIES
+     ============================================ */
+  .glass {
+    background: var(--glass-tint-light);
+    backdrop-filter: blur(var(--blur));
+    -webkit-backdrop-filter: blur(var(--blur));
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  .glass-medium {
+    background: var(--glass-tint-medium);
+    backdrop-filter: blur(var(--blur-strong));
+    -webkit-backdrop-filter: blur(var(--blur-strong));
+    border: 1px solid rgba(255, 255, 255, 0.15);
+  }
+  
+  /* ============================================
+     HEADER - Fixed Glass Navigation
+     ============================================ */
+  .site-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: var(--z-header);
+    padding: 1rem 0;
+    backdrop-filter: blur(var(--blur-strong));
+    -webkit-backdrop-filter: blur(var(--blur-strong));
+    background: rgba(11, 15, 23, 0.85);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all var(--transition-normal);
+  }
+  
+  .site-header.scrolled {
+    padding: 0.5rem 0;
+    box-shadow: var(--shadow);
+  }
+  
+  .header-container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+  }
+  
+  .site-logo {
+    font-family: var(--font-secondary);
+    font-size: 1.5rem;
+    font-weight: 700;
+    background: var(--accent-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  
+  .main-nav {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    list-style: none;
+  }
+  
+  .nav-link {
+    padding: 0.5rem 1rem;
+    border-radius: var(--radius-sm);
+    color: var(--text-main);
+    font-weight: 500;
+    transition: all var(--transition-fast);
+    position: relative;
+  }
+  
+  .nav-link:hover, .nav-link.active {
+    background: var(--glass-tint-light);
+    color: var(--accent-1);
+  }
+  
+  .header-actions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  
+  .theme-toggle {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--glass-tint-light);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--text-main);
+    transition: all var(--transition-fast);
+  }
+  
+  .theme-toggle:hover {
+    background: var(--glass-tint-medium);
+    transform: rotate(20deg);
+  }
+  
+  .sign-in-btn {
+    padding: 0.5rem 1.25rem;
+    border-radius: var(--radius);
+    background: var(--accent-gradient);
+    color: white;
+    font-weight: 600;
+    transition: all var(--transition-fast);
+  }
+  
+  .sign-in-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 16px rgba(0, 229, 255, 0.3);
+  }
+  
+  /* Mobile Menu Toggle */
+  .menu-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 4px;
+    width: 40px;
+    height: 40px;
+    align-items: center;
+    justify-content: center;
+    background: var(--glass-tint-light);
+    border-radius: var(--radius-sm);
+  }
+  
+  .menu-toggle span {
+    display: block;
+    width: 20px;
+    height: 2px;
+    background: var(--text-main);
+    transition: all var(--transition-fast);
+  }
+  
+  /* ============================================
+     HERO SECTION
+     ============================================ */
+  .hero-section {
+    padding: 120px 1.5rem 4rem;
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 20% 50%, rgba(0, 229, 255, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(139, 92, 246, 0.1) 0%, transparent 50%);
+    z-index: -1;
+  }
+  
+  .hero-container {
+    max-width: 1280px;
+    margin: 0 auto;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+  }
+  
+  .hero-content h1 {
+    font-family: var(--font-secondary);
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+    background: var(--accent-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  .hero-content p {
+    font-size: 1.125rem;
+    color: var(--text-secondary);
+    margin-bottom: 2rem;
+    max-width: 500px;
+  }
+  
+  .hero-cta {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  
+  .btn-primary {
+    padding: 0.875rem 2rem;
+    border-radius: var(--radius);
+    background: var(--accent-gradient);
+    color: white;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: all var(--transition-fast);
+    border: none;
+  }
+  
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0, 229, 255, 0.4);
+  }
+  
+  .btn-secondary {
+    padding: 0.875rem 2rem;
+    border-radius: var(--radius);
+    background: var(--glass-tint-medium);
+    color: var(--text-main);
+    font-weight: 600;
+    font-size: 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all var(--transition-fast);
+  }
+  
+  .btn-secondary:hover {
+    background: var(--glass-tint-dark);
+    transform: translateY(-2px);
+  }
+  
+  .hero-card-stack {
+    position: relative;
+    height: 400px;
+    perspective: 1000px;
+  }
+  
+  .hero-card {
+    position: absolute;
+    width: 100%;
+    padding: 2rem;
+    border-radius: var(--radius-lg);
+    transition: transform var(--transition-slow);
+  }
+  
+  .hero-card:nth-child(1) {
+    top: 0;
+    left: 0;
+    transform: translateZ(0) rotateY(-5deg);
+  }
+  
+  .hero-card:nth-child(2) {
+    top: 40px;
+    left: 40px;
+    transform: translateZ(20px) rotateY(-3deg);
+  }
+  
+  .hero-card:nth-child(3) {
+    top: 80px;
+    left: 80px;
+    transform: translateZ(40px) rotateY(0deg);
+  }
+  
+  /* ============================================
+     MAIN CONTENT
+     ============================================ */
+  main {
+    padding-top: 80px;
+  }
+  
+  .container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+  
+  .section {
+    padding: 3rem 0;
+  }
+  
+  .section-title {
+    font-family: var(--font-secondary);
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    text-align: center;
+  }
+  
+  /* ============================================
+     SUBSCRIBER COUNT CARD (3D Effect)
+     ============================================ */
+  .subscriber-card {
+    background: var(--glass-tint-medium);
+    backdrop-filter: blur(var(--blur-strong));
+    border-radius: var(--radius-lg);
+    padding: 2rem;
+    margin-bottom: 2rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: var(--shadow);
+    transform-style: preserve-3d;
+    transition: transform var(--transition-normal);
+  }
+  
+  .subscriber-card:hover {
+    transform: translateY(-4px) rotateX(2deg);
+    box-shadow: var(--shadow-strong);
+  }
+  
+  .subscriber-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1.5rem;
+  }
+  
+  .subscriber-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: var(--accent-gradient);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.5rem;
+  }
+  
+  .subscriber-count {
+    font-family: var(--font-secondary);
+    font-size: 3rem;
+    font-weight: 800;
+    background: var(--accent-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1;
+  }
+  
+  .subscriber-label {
+    color: var(--text-secondary);
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-top: 0.5rem;
+  }
+  
+  .sparkline {
+    height: 60px;
+    margin-top: 1rem;
+  }
+  
+  /* ============================================
+     SOCIAL METRICS ROW
+     ============================================ */
+  .social-metrics {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-bottom: 3rem;
+  }
+  
+  .metric-card {
+    background: var(--glass-tint-light);
+    border-radius: var(--radius);
+    padding: 1.5rem;
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all var(--transition-fast);
+  }
+  
+  .metric-card:hover {
+    background: var(--glass-tint-medium);
+    transform: translateY(-2px);
+  }
+  
+  .metric-icon {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .metric-count {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-main);
+  }
+  
+  .metric-label {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    margin-top: 0.25rem;
+  }
+  
+  /* ============================================
+     CAROUSEL / SLIDER
+     ============================================ */
+  .carousel-container {
+    position: relative;
+    margin-bottom: 3rem;
+  }
+  
+  .carousel-wrapper {
+    overflow: hidden;
+    border-radius: var(--radius-lg);
+  }
+  
+  .carousel-track {
+    display: flex;
+    gap: 1rem;
+    transition: transform var(--transition-normal);
+  }
+  
+  .carousel-item {
+    flex: 0 0 calc(33.333% - 0.667rem);
+    border-radius: var(--radius);
+    overflow: hidden;
+    position: relative;
+  }
+  
+  .carousel-item img {
+    width: 100%;
+    aspect-ratio: 16/9;
+    object-fit: cover;
+  }
+  
+  .carousel-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 1rem;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+    color: white;
+  }
+  
+  .carousel-controls {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    transform: translateY(-50%);
+    display: flex;
+    justify-content: space-between;
+    padding: 0 1rem;
+    pointer-events: none;
+  }
+  
+  .carousel-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--glass-tint-medium);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: all;
+    transition: all var(--transition-fast);
+  }
+  
+  .carousel-btn:hover {
+    background: var(--accent-1);
+    transform: scale(1.1);
+  }
+  
+  /* ============================================
+     VIDEO EMBED & PLAYER
+     ============================================ */
+  .video-container {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+    border-radius: var(--radius-lg);
+    margin-bottom: 2rem;
+  }
+  
+  .video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+  }
+  
+  /* ============================================
+     BLOG GRID
+     ============================================ */
+  .blog-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+  }
+  
+  .blog-card {
+    background: var(--glass-tint-light);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all var(--transition-normal);
+  }
+  
+  .blog-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow);
+  }
+  
+  .blog-card-image {
+    width: 100%;
+    aspect-ratio: 16/9;
+    object-fit: cover;
+  }
+  
+  .blog-card-content {
+    padding: 1.5rem;
+  }
+  
+  .blog-card-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+    color: var(--text-main);
+  }
+  
+  .blog-card-excerpt {
+    color: var(--text-secondary);
+    font-size: 0.875rem;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+  }
+  
+  .blog-card-meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 0.75rem;
+    color: var(--text-muted);
+  }
+  
+  .social-share {
+    display: flex;
+    gap: 0.5rem;
+  }
+  
+  .share-btn {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: var(--glass-tint-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all var(--transition-fast);
+  }
+  
+  .share-btn:hover {
+    background: var(--accent-1);
+    color: white;
+  }
+  
+  /* ============================================
+     FLOATING SOCIAL BAR
+     ============================================ */
+  .floating-social {
+    position: fixed;
+    right: 2rem;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 999;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .social-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: var(--glass-tint-medium);
+    backdrop-filter: blur(var(--blur));
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-main);
+    transition: all var(--transition-fast);
+  }
+  
+  .social-icon:hover {
+    background: var(--accent-1);
+    color: white;
+    transform: translateX(-4px);
+  }
+  
+  /* ============================================
+     FOOTER
+     ============================================ */
+  .site-footer {
+    background: var(--secondary-bg);
+    padding: 3rem 0 1.5rem;
+    margin-top: 4rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  .footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2rem;
+  }
+  
+  .footer-section h3 {
+    font-family: var(--font-secondary);
+    font-size: 1.125rem;
+    margin-bottom: 1rem;
+    color: var(--accent-1);
+  }
+  
+  .footer-links {
+    list-style: none;
+  }
+  
+  .footer-links li {
+    margin-bottom: 0.5rem;
+  }
+  
+  .footer-links a {
+    color: var(--text-secondary);
+    transition: color var(--transition-fast);
+  }
+  
+  .footer-links a:hover {
+    color: var(--accent-1);
+  }
+  
+  .newsletter-form {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 1rem;
+  }
+  
+  .newsletter-input {
+    flex: 1;
+    padding: 0.75rem 1rem;
+    border-radius: var(--radius);
+    background: var(--glass-tint-light);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--text-main);
+    font-family: inherit;
+  }
+  
+  .newsletter-btn {
+    padding: 0.75rem 1.5rem;
+    border-radius: var(--radius);
+    background: var(--accent-gradient);
+    color: white;
+    font-weight: 600;
+    transition: all var(--transition-fast);
+  }
+  
+  .newsletter-btn:hover {
+    box-shadow: 0 4px 12px rgba(0, 229, 255, 0.3);
+  }
+  
+  .footer-bottom {
+    text-align: center;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--text-muted);
+    font-size: 0.875rem;
+  }
+  
+  /* ============================================
+     RESPONSIVE DESIGN
+     ============================================ */
+  @media (max-width: 768px) {
+    .menu-toggle {
+      display: flex;
+    }
+    
+    .main-nav {
+      position: fixed;
+      top: 0;
+      left: -100%;
+      width: 280px;
+      height: 100vh;
+      background: rgba(11, 15, 23, 0.98);
+      backdrop-filter: blur(var(--blur-strong));
+      flex-direction: column;
+      padding: 5rem 2rem 2rem;
+      gap: 1rem;
+      transition: left var(--transition-normal);
+      z-index: 999;
+      align-items: flex-start;
+    }
+    
+    .main-nav.active {
+      left: 0;
+    }
+    
+    .nav-link {
+      width: 100%;
+    }
+    
+    .hero-container {
+      grid-template-columns: 1fr;
+    }
+    
+    .hero-card-stack {
+      height: 300px;
+    }
+    
+    .carousel-item {
+      flex: 0 0 calc(100% - 1rem);
+    }
+    
+    .floating-social {
+      right: 1rem;
+      gap: 0.5rem;
+    }
+    
+    .social-icon {
+      width: 40px;
+      height: 40px;
+    }
+    
+    .blog-grid {
+      grid-template-columns: 1fr;
+    }
+    
+    .header-actions .sign-in-btn {
+      display: none;
+    }
+  }
+  
+  @media (min-width: 769px) and (max-width: 1024px) {
+    .carousel-item {
+      flex: 0 0 calc(50% - 0.5rem);
+    }
+  }
+  
+  /* ============================================
+     LOADING & LAZY LOADING
+     ============================================ */
+  .lazy {
+    opacity: 0;
+    transition: opacity var(--transition-normal);
+  }
+  
+  .lazy.loaded {
+    opacity: 1;
+  }
+  
+  .skeleton {
+    background: linear-gradient(90deg, var(--glass-tint-light) 25%, var(--glass-tint-medium) 50%, var(--glass-tint-light) 75%);
+    background-size: 200% 100%;
+    animation: skeleton-loading 1.5s ease-in-out infinite;
+  }
+  
+  @keyframes skeleton-loading {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+  }
+  
+  /* ============================================
+     UTILITY CLASSES
+     ============================================ */
+  .text-center { text-align: center; }
+  .text-gradient {
+    background: var(--accent-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .mb-1 { margin-bottom: 0.5rem; }
+  .mb-2 { margin-bottom: 1rem; }
+  .mb-3 { margin-bottom: 1.5rem; }
+  .mb-4 { margin-bottom: 2rem; }
+  .mt-1 { margin-top: 0.5rem; }
+  .mt-2 { margin-top: 1rem; }
+  .mt-3 { margin-top: 1.5rem; }
+  .mt-4 { margin-top: 2rem; }
+  
+  /*]]>*/
+  </style>
+  
+  <b:skin><![CDATA[
+  /* Additional Blogger-specific styles can go here */
+  ]]></b:skin>
+</head>
+
+<body>
+  <!-- Fixed Glass Header -->
+  <header class='site-header' id='header'>
+    <div class='header-container'>
+      <a class='site-logo' expr:href='data:blog.homepageUrl'>
+        <data:blog.title/>
+      </a>
+      
+      <nav class='main-nav' id='mainNav'>
+        <a class='nav-link active' href='#'>Home</a>
+        <a class='nav-link' href='#videos'>Videos</a>
+        <a class='nav-link' href='#podcasts'>Podcasts</a>
+        <a class='nav-link' href='#gallery'>Gallery</a>
+        <a class='nav-link' href='#blog'>Blog</a>
+      </nav>
+      
+      <div class='header-actions'>
+        <button aria-label='Toggle dark mode' class='theme-toggle' id='themeToggle' type='button'>
+          <span id='themeIcon'>🌙</span>
+        </button>
+        <button class='sign-in-btn' type='button'>Sign In</button>
+        <button aria-label='Toggle menu' class='menu-toggle' id='menuToggle' type='button'>
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero Section -->
+    <section class='hero-section'>
+      <div class='hero-bg'></div>
+      <div class='hero-container container'>
+        <div class='hero-content'>
+          <h1>Welcome to Shanaka Technic</h1>
+          <p>Your ultimate destination for tech reviews, tutorials, and gadget unboxings. Join our growing community of tech enthusiasts!</p>
+          <div class='hero-cta'>
+            <button class='btn-primary' type='button'>Subscribe Now</button>
+            <button class='btn-secondary' type='button'>Watch Videos</button>
+          </div>
+        </div>
+        
+        <div class='hero-card-stack'>
+          <div class='hero-card glass'>
+            <div style='font-size: 2rem; margin-bottom: 0.5rem;'>🎥</div>
+            <h3>Latest Videos</h3>
+            <p>Watch our newest tech reviews</p>
+          </div>
+          <div class='hero-card glass-medium'>
+            <div style='font-size: 2rem; margin-bottom: 0.5rem;'>🎧</div>
+            <h3>Podcasts</h3>
+            <p>Listen to tech discussions</p>
+          </div>
+          <div class='hero-card glass'>
+            <div style='font-size: 2rem; margin-bottom: 0.5rem;'>📱</div>
+            <h3>Reviews</h3>
+            <p>In-depth product analysis</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class='container'>
+      <!-- 1. YouTube Subscriber Count Card -->
+      <section class='section'>
+        <div class='subscriber-card' id='subscriberCard'>
+          <div class='subscriber-header'>
+            <div>
+              <div class='subscriber-count' id='subscriberCount'>
+                <span class='digit-roll'>0</span>
+              </div>
+              <div class='subscriber-label'>YouTube Subscribers</div>
+            </div>
+            <div class='subscriber-icon'>▶️</div>
+          </div>
+          <div class='sparkline' id='sparkline'></div>
+        </div>
+      </section>
+
+      <!-- 2. Social Follower Counts Row -->
+      <section class='section'>
+        <div class='social-metrics' id='socialMetrics'>
+          <div class='metric-card'>
+            <div class='metric-icon'>👍</div>
+            <div class='metric-count' data-platform='facebook'>0</div>
+            <div class='metric-label'>Facebook Followers</div>
+          </div>
+          <div class='metric-card'>
+            <div class='metric-icon'>🎵</div>
+            <div class='metric-count' data-platform='tiktok'>0</div>
+            <div class='metric-label'>TikTok Followers</div>
+          </div>
+          <div class='metric-card'>
+            <div class='metric-icon'>📷</div>
+            <div class='metric-count' data-platform='instagram'>0</div>
+            <div class='metric-label'>Instagram Followers</div>
+          </div>
+          <div class='metric-card'>
+            <div class='metric-icon'>🐦</div>
+            <div class='metric-count' data-platform='twitter'>0</div>
+            <div class='metric-label'>Twitter Followers</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 3. Latest YouTube Uploads Slider -->
+      <section class='section' id='videos'>
+        <h2 class='section-title'>Latest YouTube Videos</h2>
+        <div class='carousel-container'>
+          <div class='carousel-wrapper'>
+            <div class='carousel-track' id='videoCarousel'>
+              <!-- Videos will be loaded dynamically via JavaScript -->
+            </div>
+          </div>
+          <div class='carousel-controls'>
+            <button aria-label='Previous' class='carousel-btn' id='videoPrev' type='button'>‹</button>
+            <button aria-label='Next' class='carousel-btn' id='videoNext' type='button'>›</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- 4. Featured Video Banner -->
+      <section class='section'>
+        <h2 class='section-title'>Featured Video</h2>
+        <div class='video-container' id='featuredVideo'>
+          <!-- Featured video embed will be inserted here -->
+        </div>
+      </section>
+
+      <!-- 5. YouTube Playlist Embeds -->
+      <section class='section'>
+        <h2 class='section-title'>Video Playlists</h2>
+        <div class='blog-grid' id='playlistsContainer'>
+          <!-- Playlists will be loaded dynamically -->
+        </div>
+      </section>
+
+      <!-- 6. Podcast/Audio Section -->
+      <section class='section' id='podcasts'>
+        <h2 class='section-title'>Tech Podcasts</h2>
+        <div class='blog-grid' id='podcastsContainer'>
+          <div class='blog-card glass'>
+            <div class='blog-card-content'>
+              <h3 class='blog-card-title'>Episode 1: The Future of AI</h3>
+              <p class='blog-card-excerpt'>Exploring the latest developments in artificial intelligence and machine learning.</p>
+              <audio controls='' style='width: 100%; margin-top: 1rem;'>
+                <source src='podcast1.mp3' type='audio/mpeg'/>
+                Your browser does not support the audio element.
+              </audio>
+            </div>
+          </div>
+          <div class='blog-card glass'>
+            <div class='blog-card-content'>
+              <h3 class='blog-card-title'>Episode 2: 5G Revolution</h3>
+              <p class='blog-card-excerpt'>Understanding how 5G technology is changing connectivity and communication.</p>
+              <audio controls='' style='width: 100%; margin-top: 1rem;'>
+                <source src='podcast2.mp3' type='audio/mpeg'/>
+                Your browser does not support the audio element.
+              </audio>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 7. Image Gallery/Product Unboxing Slider -->
+      <section class='section' id='gallery'>
+        <h2 class='section-title'>Product Gallery</h2>
+        <div class='carousel-container'>
+          <div class='carousel-wrapper'>
+            <div class='carousel-track' id='galleryCarousel'>
+              <!-- Gallery items will be loaded dynamically -->
+            </div>
+          </div>
+          <div class='carousel-controls'>
+            <button aria-label='Previous' class='carousel-btn' id='galleryPrev' type='button'>‹</button>
+            <button aria-label='Next' class='carousel-btn' id='galleryNext' type='button'>›</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- 8. Giveaway/Contest Panel -->
+      <section class='section'>
+        <div class='subscriber-card glass-medium' style='text-align: center;'>
+          <h2 style='font-size: 2rem; margin-bottom: 1rem;'>🎁 Monthly Giveaway</h2>
+          <p style='color: var(--text-secondary); margin-bottom: 1.5rem;'>
+            Subscribe and turn on notifications for a chance to win the latest tech gadgets!
+          </p>
+          <button class='btn-primary' type='button'>Enter Now</button>
+        </div>
+      </section>
+
+      <!-- 9. Blog Posts Grid -->
+      <section class='section' id='blog'>
+        <h2 class='section-title'>Latest Blog Posts</h2>
+        <div class='blog-grid' id='blogPosts'>
+          <b:section class='blog-posts' id='blog-posts' maxwidgets='1' showaddelement='no'>
+            <b:widget id='Blog1' locked='true' title='Blog Posts' type='Blog' visible='true'>
+              <b:includable id='main'>
+                <b:loop values='data:posts' var='post'>
+                  <article class='blog-card'>
+                    <b:if cond='data:post.featuredImage'>
+                      <img class='blog-card-image lazy' expr:data-src='data:post.featuredImage' alt='Post image'/>
+                    </b:if>
+                    <div class='blog-card-content'>
+                      <h3 class='blog-card-title'>
+                        <a expr:href='data:post.url'><data:post.title/></a>
+                      </h3>
+                      <p class='blog-card-excerpt'><data:post.snippet/></p>
+                      <div class='blog-card-meta'>
+                        <span><data:post.date/></span>
+                        <div class='social-share'>
+                          <button aria-label='Share on Facebook' class='share-btn' type='button'>f</button>
+                          <button aria-label='Share on Twitter' class='share-btn' type='button'>𝕏</button>
+                          <button aria-label='Share via Link' class='share-btn' type='button'>🔗</button>
+                        </div>
+                      </div>
+                    </div>
+                  </article>
+                </b:loop>
+              </b:includable>
+            </b:widget>
+          </b:section>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <!-- Floating Social Bar -->
+  <aside aria-label='Social media links' class='floating-social'>
+    <a aria-label='YouTube' class='social-icon' href='https://youtube.com' rel='noopener' target='_blank'>▶️</a>
+    <a aria-label='Facebook' class='social-icon' href='https://facebook.com' rel='noopener' target='_blank'>👍</a>
+    <a aria-label='Instagram' class='social-icon' href='https://instagram.com' rel='noopener' target='_blank'>📷</a>
+    <a aria-label='Twitter' class='social-icon' href='https://twitter.com' rel='noopener' target='_blank'>🐦</a>
+    <a aria-label='TikTok' class='social-icon' href='https://tiktok.com' rel='noopener' target='_blank'>🎵</a>
+  </aside>
+
+  <!-- Footer -->
+  <footer class='site-footer'>
+    <div class='container'>
+      <div class='footer-content'>
+        <div class='footer-section'>
+          <h3>Shanaka Technic</h3>
+          <p style='color: var(--text-secondary);'>Your trusted source for tech reviews, tutorials, and the latest gadget news.</p>
+        </div>
+        
+        <div class='footer-section'>
+          <h3>Quick Links</h3>
+          <ul class='footer-links'>
+            <li><a href='#'>About Us</a></li>
+            <li><a href='#'>Contact</a></li>
+            <li><a href='#'>Privacy Policy</a></li>
+            <li><a href='#'>Terms of Service</a></li>
+          </ul>
+        </div>
+        
+        <div class='footer-section'>
+          <h3>Categories</h3>
+          <ul class='footer-links'>
+            <li><a href='#'>Smartphone Reviews</a></li>
+            <li><a href='#'>Laptop Reviews</a></li>
+            <li><a href='#'>Gaming</a></li>
+            <li><a href='#'>Accessories</a></li>
+          </ul>
+        </div>
+        
+        <div class='footer-section'>
+          <h3>Newsletter</h3>
+          <p style='color: var(--text-secondary); margin-bottom: 1rem;'>Subscribe for weekly tech updates!</p>
+          <form class='newsletter-form' onsubmit='return false;'>
+            <input class='newsletter-input' placeholder='Your email' type='email'/>
+            <button class='newsletter-btn' type='submit'>Subscribe</button>
+          </form>
+        </div>
+      </div>
+      
+      <div class='footer-bottom'>
+        <p>© 2024 Shanaka Technic. All rights reserved. Built with passion for technology.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Main JavaScript -->
+  <script>
+  //<![CDATA[
+  
+  /* ============================================
+     CONFIGURATION - Update with your details
+     ============================================ */
+  const CONFIG = {
+    youtubeApiKey: 'YOUR_YOUTUBE_API_KEY_HERE',
+    youtubeChannelId: 'YOUR_CHANNEL_ID_HERE',
+    socialCountsEndpoint: 'YOUR_SOCIAL_COUNTS_API_ENDPOINT',
+    featuredVideoId: 'dQw4w9WgXcQ', // Example video ID
+  };
+  
+  /* ============================================
+     DARK MODE TOGGLE
+     ============================================ */
+  const themeToggle = document.getElementById('themeToggle');
+  const themeIcon = document.getElementById('themeIcon');
+  const html = document.documentElement;
+  
+  // Load saved theme preference
+  const savedTheme = localStorage.getItem('theme') || 'dark';
+  html.setAttribute('data-theme', savedTheme);
+  themeIcon.textContent = savedTheme === 'dark' ? '🌙' : '☀️';
+  
+  themeToggle.addEventListener('click', () => {
+    const currentTheme = html.getAttribute('data-theme');
+    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+    
+    html.setAttribute('data-theme', newTheme);
+    localStorage.setItem('theme', newTheme);
+    themeIcon.textContent = newTheme === 'dark' ? '🌙' : '☀️';
+  });
+  
+  /* ============================================
+     MOBILE MENU TOGGLE
+     ============================================ */
+  const menuToggle = document.getElementById('menuToggle');
+  const mainNav = document.getElementById('mainNav');
+  
+  menuToggle.addEventListener('click', () => {
+    mainNav.classList.toggle('active');
+  });
+  
+  // Close menu when clicking outside
+  document.addEventListener('click', (e) => {
+    if (!mainNav.contains(e.target) && !menuToggle.contains(e.target)) {
+      mainNav.classList.remove('active');
+    }
+  });
+  
+  /* ============================================
+     HEADER SCROLL EFFECT
+     ============================================ */
+  const header = document.getElementById('header');
+  let lastScroll = 0;
+  
+  window.addEventListener('scroll', () => {
+    const currentScroll = window.pageYOffset;
+    
+    if (currentScroll > 50) {
+      header.classList.add('scrolled');
+    } else {
+      header.classList.remove('scrolled');
+    }
+    
+    lastScroll = currentScroll;
+  });
+  
+  /* ============================================
+     YOUTUBE DATA API INTEGRATION
+     ============================================ */
+  async function fetchYouTubeData() {
+    if (!CONFIG.youtubeApiKey || CONFIG.youtubeApiKey === 'YOUR_YOUTUBE_API_KEY_HERE') {
+      console.warn('YouTube API key not configured');
+      setDemoData();
+      return;
+    }
+    
+    try {
+      // Fetch channel statistics
+      const channelResponse = await fetch(
+        `https://www.googleapis.com/youtube/v3/channels?part=statistics&id=${CONFIG.youtubeChannelId}&key=${CONFIG.youtubeApiKey}`
+      );
+      const channelData = await channelResponse.json();
+      
+      if (channelData.items && channelData.items[0]) {
+        const stats = channelData.items[0].statistics;
+        updateSubscriberCount(stats.subscriberCount);
+      }
+      
+      // Fetch latest uploads
+      const uploadsResponse = await fetch(
+        `https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=${CONFIG.youtubeChannelId}&order=date&maxResults=6&type=video&key=${CONFIG.youtubeApiKey}`
+      );
+      const uploadsData = await uploadsResponse.json();
+      
+      if (uploadsData.items) {
+        displayLatestVideos(uploadsData.items);
+      }
+      
+      // Load featured video
+      loadFeaturedVideo();
+      
+    } catch (error) {
+      console.error('Error fetching YouTube data:', error);
+      setDemoData();
+    }
+  }
+  
+  function setDemoData() {
+    // Demo data when API is not configured
+    updateSubscriberCount('150000');
+    
+    const demoVideos = [
+      { id: { videoId: 'dQw4w9WgXcQ' }, snippet: { title: 'Demo Video 1', thumbnails: { medium: { url: 'https://i.ytimg.com/vi/dQw4w9WgXcQ/mqdefault.jpg' } } } },
+      { id: { videoId: 'dQw4w9WgXcQ' }, snippet: { title: 'Demo Video 2', thumbnails: { medium: { url: 'https://i.ytimg.com/vi/dQw4w9WgXcQ/mqdefault.jpg' } } } },
+      { id: { videoId: 'dQw4w9WgXcQ' }, snippet: { title: 'Demo Video 3', thumbnails: { medium: { url: 'https://i.ytimg.com/vi/dQw4w9WgXcQ/mqdefault.jpg' } } } },
+    ];
+    
+    displayLatestVideos(demoVideos);
+    loadFeaturedVideo();
+  }
+  
+  function updateSubscriberCount(count) {
+    const counterElement = document.getElementById('subscriberCount');
+    const formatted = formatNumber(count);
+    
+    // Animated counter effect
+    animateCounter(counterElement, 0, parseInt(count), 2000);
+  }
+  
+  function animateCounter(element, start, end, duration) {
+    const range = end - start;
+    const increment = Math.ceil(range / (duration / 16));
+    let current = start;
+    
+    const timer = setInterval(() => {
+      current += increment;
+      if (current >= end) {
+        current = end;
+        clearInterval(timer);
+      }
+      element.textContent = formatNumber(current);
+    }, 16);
+  }
+  
+  function formatNumber(num) {
+    const n = parseInt(num);
+    if (n >= 1000000) {
+      return (n / 1000000).toFixed(1) + 'M';
+    } else if (n >= 1000) {
+      return (n / 1000).toFixed(1) + 'K';
+    }
+    return n.toString();
+  }
+  
+  function displayLatestVideos(videos) {
+    const carousel = document.getElementById('videoCarousel');
+    carousel.innerHTML = '';
+    
+    videos.forEach(video => {
+      const videoId = video.id.videoId || video.id;
+      const item = document.createElement('div');
+      item.className = 'carousel-item';
+      item.innerHTML = `
+        <a href="https://www.youtube.com/watch?v=${videoId}" target="_blank" rel="noopener">
+          <img src="${video.snippet.thumbnails.medium.url}" alt="${video.snippet.title}" loading="lazy"/>
+          <div class="carousel-overlay">
+            <h4 style="font-size: 0.875rem; font-weight: 600;">${video.snippet.title}</h4>
+          </div>
+        </a>
+      `;
+      carousel.appendChild(item);
+    });
+  }
+  
+  function loadFeaturedVideo() {
+    const container = document.getElementById('featuredVideo');
+    container.innerHTML = `
+      <iframe
+        src="https://www.youtube.com/embed/${CONFIG.featuredVideoId}?rel=0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen
+        loading="lazy"
+      ></iframe>
+    `;
+  }
+  
+  /* ============================================
+     SOCIAL METRICS LOADING
+     ============================================ */
+  async function fetchSocialMetrics() {
+    if (!CONFIG.socialCountsEndpoint || CONFIG.socialCountsEndpoint === 'YOUR_SOCIAL_COUNTS_API_ENDPOINT') {
+      // Demo data
+      updateSocialCount('facebook', '25000');
+      updateSocialCount('tiktok', '50000');
+      updateSocialCount('instagram', '35000');
+      updateSocialCount('twitter', '15000');
+      return;
+    }
+    
+    try {
+      const response = await fetch(CONFIG.socialCountsEndpoint);
+      const data = await response.json();
+      
+      updateSocialCount('facebook', data.facebook);
+      updateSocialCount('tiktok', data.tiktok);
+      updateSocialCount('instagram', data.instagram);
+      updateSocialCount('twitter', data.twitter);
+    } catch (error) {
+      console.error('Error fetching social metrics:', error);
+    }
+  }
+  
+  function updateSocialCount(platform, count) {
+    const element = document.querySelector(`[data-platform="${platform}"]`);
+    if (element) {
+      animateCounter(element, 0, parseInt(count), 1500);
+    }
+  }
+  
+  /* ============================================
+     CAROUSEL FUNCTIONALITY
+     ============================================ */
+  function initCarousel(carouselId, prevBtnId, nextBtnId) {
+    const carousel = document.getElementById(carouselId);
+    const prevBtn = document.getElementById(prevBtnId);
+    const nextBtn = document.getElementById(nextBtnId);
+    
+    if (!carousel || !prevBtn || !nextBtn) return;
+    
+    let currentIndex = 0;
+    
+    prevBtn.addEventListener('click', () => {
+      currentIndex = Math.max(0, currentIndex - 1);
+      updateCarousel();
+    });
+    
+    nextBtn.addEventListener('click', () => {
+      const maxIndex = carousel.children.length - 1;
+      currentIndex = Math.min(maxIndex, currentIndex + 1);
+      updateCarousel();
+    });
+    
+    function updateCarousel() {
+      const itemWidth = carousel.children[0]?.offsetWidth || 0;
+      const gap = 16; // 1rem gap
+      const offset = -(currentIndex * (itemWidth + gap));
+      carousel.style.transform = `translateX(${offset}px)`;
+    }
+  }
+  
+  /* ============================================
+     LAZY LOADING IMAGES
+     ============================================ */
+  function initLazyLoading() {
+    const lazyImages = document.querySelectorAll('img.lazy');
+    
+    if ('IntersectionObserver' in window) {
+      const imageObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const img = entry.target;
+            img.src = img.dataset.src;
+            img.classList.remove('lazy');
+            img.classList.add('loaded');
+            observer.unobserve(img);
+          }
+        });
+      });
+      
+      lazyImages.forEach(img => imageObserver.observe(img));
+    } else {
+      // Fallback for older browsers
+      lazyImages.forEach(img => {
+        img.src = img.dataset.src;
+        img.classList.remove('lazy');
+      });
+    }
+  }
+  
+  /* ============================================
+     INITIALIZATION
+     ============================================ */
+  document.addEventListener('DOMContentLoaded', () => {
+    // Initialize YouTube data
+    fetchYouTubeData();
+    
+    // Initialize social metrics
+    fetchSocialMetrics();
+    
+    // Initialize carousels
+    initCarousel('videoCarousel', 'videoPrev', 'videoNext');
+    initCarousel('galleryCarousel', 'galleryPrev', 'galleryNext');
+    
+    // Initialize lazy loading
+    initLazyLoading();
+    
+    // Add smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        const href = this.getAttribute('href');
+        if (href !== '#' && href !== '') {
+          e.preventDefault();
+          const target = document.querySelector(href);
+          if (target) {
+            target.scrollIntoView({ behavior: 'smooth' });
+          }
+        }
+      });
+    });
+    
+    // Create demo gallery items
+    const galleryCarousel = document.getElementById('galleryCarousel');
+    if (galleryCarousel && galleryCarousel.children.length === 0) {
+      for (let i = 1; i <= 6; i++) {
+        const item = document.createElement('div');
+        item.className = 'carousel-item';
+        item.innerHTML = `
+          <img src="https://via.placeholder.com/400x300/8b5cf6/ffffff?text=Gallery+${i}" alt="Gallery ${i}" loading="lazy"/>
+          <div class="carousel-overlay">
+            <h4 style="font-size: 0.875rem; font-weight: 600;">Product ${i} Unboxing</h4>
+          </div>
+        `;
+        galleryCarousel.appendChild(item);
+      }
+    }
+  });
+  
+  // Structured Data (JSON-LD) for SEO
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Shanaka Technic",
+    "url": window.location.origin,
+    "description": "Tech reviews, tutorials, and gadget unboxings",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Shanaka Technic"
+    }
+  };
+  
+  const script = document.createElement('script');
+  script.type = 'application/ld+json';
+  script.textContent = JSON.stringify(structuredData);
+  document.head.appendChild(script);
+  
+  //]]>
+  </script>
+</body>
+</html>
